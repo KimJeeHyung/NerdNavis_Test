@@ -38,6 +38,8 @@ public class MenuButtonControl : MonoBehaviour
 
         ResourcesMenuBackground.color = SelectedColor;
         ResourcesMenuText.color = Color.white;
+
+        GachaMenu.SetActive(false);
     }
 
     // Update is called once per frame
