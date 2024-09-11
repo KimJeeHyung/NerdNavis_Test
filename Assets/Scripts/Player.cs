@@ -6,8 +6,10 @@ public class Player : MonoBehaviour
 {
     private static Player _instance = null;
 
+
     // 플레이어 데이터
-    [SerializeField] private float f_CurrentResources = 500f;   // 보유한 자원량
+    [SerializeField] private int n_CurrentResources = 500;  // 보유한 자원량
+    [SerializeField] private int n_Maximum = 100000;        // 최대 보유량
 
     public static Player Instance
     {
@@ -56,6 +58,16 @@ public class Player : MonoBehaviour
 
     public void AddResources(int value)
     {
-        f_CurrentResources += value;
+        n_CurrentResources += value;
+    }
+
+    public int GetResources()
+    {
+        return n_CurrentResources;
+    }
+
+    public bool IsMaximum()
+    {
+        return n_CurrentResources >= n_Maximum;
     }
 }

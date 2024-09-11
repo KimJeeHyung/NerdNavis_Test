@@ -538,7 +538,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2064696416}
         m_TargetAssemblyTypeName: ChargeResourcesManager, Assembly-CSharp
-        m_MethodName: GetResources
+        m_MethodName: ReceiveResources
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2709,7 +2709,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 741868363}
-  - component: {fileID: 741868364}
+  - component: {fileID: 741868365}
   m_Layer: 0
   m_Name: MenuManager
   m_TagString: Untagged
@@ -2732,7 +2732,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &741868364
+--- !u!114 &741868365
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2741,12 +2741,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 741868362}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fb7f1e4191f20845a0aa14fb205733b, type: 3}
+  m_Script: {fileID: 11500000, guid: ae290e32a7ccfbd4ebdb8373460d8622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ResourcesMenu: {fileID: 1643762610}
   GachaMenu: {fileID: 1565368944}
   MenuText: {fileID: 2116422133}
+  ResourcesText: {fileID: 1703242702}
   ResourcesMenuButton: {fileID: 1555951285}
   GachaMenuButton: {fileID: 1952064139}
 --- !u!1 &778421150
@@ -4708,8 +4709,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 741868364}
-        m_TargetAssemblyTypeName: MenuButtonControl, Assembly-CSharp
+      - m_Target: {fileID: 741868365}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: OnClickResourcesMenuButton
         m_Mode: 1
         m_Arguments:
@@ -4773,7 +4774,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1565368945
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5845,8 +5846,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 741868364}
-        m_TargetAssemblyTypeName: MenuButtonControl, Assembly-CSharp
+      - m_Target: {fileID: 741868365}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: OnClickGachaMenuButton
         m_Mode: 1
         m_Arguments:
