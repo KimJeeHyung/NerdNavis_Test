@@ -6,10 +6,14 @@ public class Player : MonoBehaviour
 {
     private static Player _instance = null;
 
+    // 플레이어 자원 관리 클래스
+    [SerializeField]
+    private PlayerResources playerResources;
 
-    // 플레이어 데이터
-    [SerializeField] private int n_CurrentResources = 500;  // 보유한 자원량
-    [SerializeField] private int n_Maximum = 100000;        // 최대 보유량
+    // 플레이어 스탯 관리 클래스
+    [SerializeField]
+    private PlayerStats playerStats;
+
 
     public static Player Instance
     {
@@ -35,7 +39,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -58,16 +62,16 @@ public class Player : MonoBehaviour
 
     public void AddResources(int value)
     {
-        n_CurrentResources += value;
+        playerResources.AddResources(value);
     }
 
     public int GetResources()
     {
-        return n_CurrentResources;
+        return playerResources.GetResources();
     }
 
     public bool IsMaximum()
     {
-        return n_CurrentResources >= n_Maximum;
+        return playerResources.IsMaximum();
     }
 }

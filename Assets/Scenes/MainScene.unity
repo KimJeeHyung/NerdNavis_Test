@@ -3542,6 +3542,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1044739780}
   - component: {fileID: 1044739779}
+  - component: {fileID: 1044739781}
+  - component: {fileID: 1044739782}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3561,7 +3563,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 758afca41a050f1438b4ab8bc8ecb623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  f_CurrentResources: 500
+  playerResources: {fileID: 1044739781}
+  playerStats: {fileID: 1044739782}
 --- !u!4 &1044739780
 Transform:
   m_ObjectHideFlags: 0
@@ -3577,6 +3580,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1044739781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044739778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a493be49868ac48a8d2f28bffbdb10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  n_CurrentResources: 500
+  n_Maximum: 100000
+--- !u!114 &1044739782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044739778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09eaf70a2c452514381652d0a782618b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  n_Attack: 0
+  n_Defense: 0
+  n_HP: 0
+  n_CombatPower: 0
 --- !u!1 &1135295363
 GameObject:
   m_ObjectHideFlags: 0
@@ -6447,6 +6480,7 @@ MonoBehaviour:
   f_AvailableResources: 0
   f_AmountOfIncrease: 30.75
   f_MinimumValue: 100
+  n_MaximumValue: 100000
   NoticeUI: {fileID: 1704659079}
   b_Available: 0
   b_AlreadyActive: 0
