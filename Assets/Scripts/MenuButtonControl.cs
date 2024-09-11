@@ -7,23 +7,26 @@ using System.Linq.Expressions;
 
 public class MenuButtonControl : MonoBehaviour
 {
-    [SerializeField] private GameObject ResourcesMenu;
-    [SerializeField] private GameObject GachaMenu;
+    [Header("Menu Objects")]
+    [SerializeField] private GameObject ResourcesMenu;  // 자원 메뉴
+    [SerializeField] private GameObject GachaMenu;      // 뽑기 메뉴
+    [SerializeField] private TextMeshProUGUI MenuText;  // 현재 메뉴를 표시하는 텍스트
 
-    [SerializeField]
-    private Button ResourcesMenuButton;
+    // 자원 메뉴 전환 버튼
+    [Header("Menu Buttons")]
+    [SerializeField] private Button ResourcesMenuButton;
     private Image ResourcesMenuBackground;
     private TextMeshProUGUI ResourcesMenuText;
 
-    [SerializeField]
-    private Button GachaMenuButton;
+    // 뽑기 메뉴 전환 버튼
+    [SerializeField] private Button GachaMenuButton;
     private Image GachaMenuBackground;
     private TextMeshProUGUI GachaMenuText;
 
-    private Color SelectedColor;
+    private Color SelectedColor;    // 버튼이 선택 중일 때 색깔
 
-    [SerializeField] private bool b_ResourcesMenuSelected = false;
-    [SerializeField] private bool b_GachaMenuSelected = false;
+    //[SerializeField] private bool b_ResourcesMenuSelected = false;
+    //[SerializeField] private bool b_GachaMenuSelected = false;
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +61,8 @@ public class MenuButtonControl : MonoBehaviour
 
         GachaMenuBackground.color = Color.white;
         GachaMenuText.color = Color.black;
+
+        MenuText.text = "자원";
     }
 
     public void OnClickGachaMenuButton()
@@ -70,5 +75,7 @@ public class MenuButtonControl : MonoBehaviour
 
         ResourcesMenuBackground.color = Color.white;
         ResourcesMenuText.color = Color.black;
+
+        MenuText.text = "뽑기";
     }
 }
