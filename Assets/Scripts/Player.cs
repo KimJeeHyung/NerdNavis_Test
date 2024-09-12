@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
 
     public int GetResources()
     {
-        return playerResources.GetResources();
+        return playerResources.CurrentResources;
     }
 
     public bool IsMaximum()

@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    [SerializeField] private int n_Attack;          // 공격력
-    [SerializeField] private int n_Defense;         // 방어력
-    [SerializeField] private int n_HP;              // 체력
-    [SerializeField] private int n_CombatPower;     // 전투력(공격력 + 방어력 + HP)
+    // 공격력
+    [SerializeField] private int n_Attack;
+    public int Attack { get { return n_Attack; } }
+    // 방어력
+    [SerializeField] private int n_Defense;
+    public int Defense { get { return n_Defense; } }
+    // 체력
+    [SerializeField] private int n_HP;
+    public int HP { get { return n_HP; } }
+    // 전투력(공격력 + 방어력 + HP)
+    [SerializeField] private int n_CombatPower;
 
     // Start is called before the first frame update
     void Start()
@@ -26,19 +33,9 @@ public class PlayerStats : MonoBehaviour
         n_Attack += value;
     }
 
-    public int GetAttack()
-    {
-        return n_Attack;
-    }
-
     public void AddDefense(int value)
     {
         n_Defense += value;
-    }
-
-    public int GetDefense()
-    {
-        return n_Defense;
     }
 
     public void AddHP(int value)
