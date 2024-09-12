@@ -12,7 +12,7 @@ public class PlayerStats : MonoBehaviour
     public int Defense { get { return n_Defense; } }
     // 체력
     [SerializeField] private int n_Hp;
-    public int HP { get { return n_Hp; } }
+    public int Hp { get { return n_Hp; } }
     // 전투력(공격력 + 방어력 + HP)
     [SerializeField] private int n_CombatPower;
     public int CombatPower { get { return n_CombatPower; } }

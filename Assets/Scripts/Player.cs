@@ -74,4 +74,24 @@ public class Player : MonoBehaviour
     {
         return playerResources.IsMaximum();
     }
+
+    public int GetAttack()
+    {
+        return playerStats.Attack;
+    }
+
+    public int GetDefense()
+    {
+        return playerStats.Defense;
+    }
+
+    public int GetHp()
+    {
+        return playerStats.Hp;
+    }
+
+    public int GetCombatPower()
+    {
+        return playerStats.CombatPower;
+    }
 }

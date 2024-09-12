@@ -12,11 +12,12 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject GachaMenu;      // 뽑기 메뉴
 
     [Header("Texts")]
-    [SerializeField] private TextMeshProUGUI MenuText;          // 현재 메뉴를 표시하는 텍스트
-    [SerializeField] private TextMeshProUGUI ResourcesText;     // 현재 보유 중인 자원량 텍스트
-    [SerializeField] private TextMeshProUGUI PlayerAttackText;  // 플레이어 공격력 텍스트
-    [SerializeField] private TextMeshProUGUI PlayerDefenseText; // 플레이어 방어력 텍스트
-    [SerializeField] private TextMeshProUGUI PlayerHpText;      // 플레이어 체력 텍스트
+    [SerializeField] private TextMeshProUGUI MenuText;              // 현재 메뉴를 표시하는 텍스트
+    [SerializeField] private TextMeshProUGUI ResourcesText;         // 현재 보유 중인 자원량 텍스트
+    [SerializeField] private TextMeshProUGUI PlayerAttackText;      // 플레이어 공격력 텍스트
+    [SerializeField] private TextMeshProUGUI PlayerDefenseText;     // 플레이어 방어력 텍스트
+    [SerializeField] private TextMeshProUGUI PlayerHpText;          // 플레이어 체력 텍스트
+    [SerializeField] private TextMeshProUGUI PlayerCombatPowerText; // 플레이어 전투력 텍스트
 
     // 자원 메뉴 전환 버튼
     [Header("Menu Buttons")]
@@ -31,7 +32,8 @@ public class MenuManager : MonoBehaviour
 
     private Color SelectedColor;    // 버튼이 선택 중일 때 색깔
 
-    public static Action UpdateResourcesText;
+    public static Action UpdateResourcesText;   // 보유 중인 자원량 텍스트를 갱신하는 이벤트
+    public static Action UpdateStatTexts;       // 플레이어 스탯 텍스트들을 갱신하는 이벤트
 
     // Start is called before the first frame update
     void Start()
@@ -42,8 +44,14 @@ public class MenuManager : MonoBehaviour
         // 이벤트 함수 할당
         UpdateResourcesText += SetResourcesText;
 
-        // 자원 보유량 텍스트 초기화
+        UpdateStatTexts += SetAttackText;
+        UpdateStatTexts += SetDefenseText;
+        UpdateStatTexts += SetHpText;
+        UpdateStatTexts += SetCombatPowerText;
+
+        // 텍스트 초기화
         UpdateResourcesText();
+        UpdateStatTexts();
     }
 
     void Initialize()
@@ -112,5 +120,33 @@ public class MenuManager : MonoBehaviour
         int currentResources = Player.Instance.GetResources();
 
         ResourcesText.text = NumberControl.FormatWithUnit(currentResources);
+    }
+
+    void SetAttackText()
+    {
+        int playerAttack = Player.Instance.GetAttack();
+
+        PlayerAttackText.text=NumberControl.FormatWithUnit(playerAttack);
+    }
+
+    void SetDefenseText()
+    {
+        int playerDefense = Player.Instance.GetDefense();
+
+        PlayerDefenseText.text = NumberControl.FormatWithUnit(playerDefense);
+    }
+
+    void SetHpText()
+    {
+        int playerHp = Player.Instance.GetHp();
+
+        PlayerHpText.text = NumberControl.FormatWithUnit(playerHp);
+    }
+
+    void SetCombatPowerText()
+    {
+        int playerCombatPower = Player.Instance.GetCombatPower();
+
+        PlayerCombatPowerText.text = NumberControl.FormatWithUnit(playerCombatPower);
     }
 }
