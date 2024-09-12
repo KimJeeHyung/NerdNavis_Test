@@ -30,12 +30,6 @@ public class ChargeResourcesManager : MonoBehaviour
     [SerializeField] private bool b_Available = false;      // 자원 획득 가능 여부
     [SerializeField] private bool b_AlreadyActive = false;  // 획득 알림 활성화 여부(과도한 함수 호출 방지용)
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {

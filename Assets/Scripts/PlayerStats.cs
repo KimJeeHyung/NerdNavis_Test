@@ -11,10 +11,11 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private int n_Defense;
     public int Defense { get { return n_Defense; } }
     // 체력
-    [SerializeField] private int n_HP;
-    public int HP { get { return n_HP; } }
+    [SerializeField] private int n_Hp;
+    public int HP { get { return n_Hp; } }
     // 전투력(공격력 + 방어력 + HP)
     [SerializeField] private int n_CombatPower;
+    public int CombatPower { get { return n_CombatPower; } }
 
     // Start is called before the first frame update
     void Start()
@@ -31,27 +32,23 @@ public class PlayerStats : MonoBehaviour
     public void AddAttack(int value)
     {
         n_Attack += value;
+        UpdateCombatPower();
     }
 
     public void AddDefense(int value)
     {
         n_Defense += value;
+        UpdateCombatPower();
     }
 
-    public void AddHP(int value)
+    public void AddHp(int value)
     {
-        n_HP += value;
+        n_Hp += value;
+        UpdateCombatPower();
     }
 
-    public int GetHP()
+    void UpdateCombatPower()
     {
-        return n_HP;
-    }
-
-    public int GetCombatPower()
-    {
-        n_CombatPower = n_Attack + n_Defense + n_HP;
-
-        return n_CombatPower;
+        n_CombatPower = n_Attack + n_Defense + n_Hp;
     }
 }

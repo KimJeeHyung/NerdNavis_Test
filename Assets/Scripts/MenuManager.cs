@@ -12,8 +12,11 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject GachaMenu;      // 뽑기 메뉴
 
     [Header("Texts")]
-    [SerializeField] private TextMeshProUGUI MenuText;      // 현재 메뉴를 표시하는 텍스트
-    [SerializeField] private TextMeshProUGUI ResourcesText; // 현재 보유 중인 자원량 텍스트
+    [SerializeField] private TextMeshProUGUI MenuText;          // 현재 메뉴를 표시하는 텍스트
+    [SerializeField] private TextMeshProUGUI ResourcesText;     // 현재 보유 중인 자원량 텍스트
+    [SerializeField] private TextMeshProUGUI PlayerAttackText;  // 플레이어 공격력 텍스트
+    [SerializeField] private TextMeshProUGUI PlayerDefenseText; // 플레이어 방어력 텍스트
+    [SerializeField] private TextMeshProUGUI PlayerHpText;      // 플레이어 체력 텍스트
 
     // 자원 메뉴 전환 버튼
     [Header("Menu Buttons")]
@@ -41,12 +44,6 @@ public class MenuManager : MonoBehaviour
 
         // 자원 보유량 텍스트 초기화
         UpdateResourcesText();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void Initialize()
