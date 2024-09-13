@@ -19,8 +19,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI PlayerHpText;          // 플레이어 체력 텍스트
     [SerializeField] private TextMeshProUGUI PlayerCombatPowerText; // 플레이어 전투력 텍스트
 
-    // 자원 메뉴 전환 버튼
     [Header("Menu Buttons")]
+    // 자원 메뉴 전환 버튼
     [SerializeField] private Button ResourcesMenuButton;
     private Image ResourcesMenuBackground;
     private TextMeshProUGUI ResourcesMenuText;
@@ -29,6 +29,11 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Button GachaMenuButton;
     private Image GachaMenuBackground;
     private TextMeshProUGUI GachaMenuText;
+
+    [Header("Inventory")]
+    [SerializeField] private Button WeaponPanelButton;
+    [SerializeField] private Button ArmorPanelButton;
+    [SerializeField] private Button ShieldPanelButton;
 
     private Color SelectedColor;    // 버튼이 선택 중일 때 색깔
 
@@ -67,6 +72,8 @@ public class MenuManager : MonoBehaviour
         ResourcesMenuBackground.color = SelectedColor;
         ResourcesMenuText.color = Color.white;
 
+        //WeaponPanelButton.image.color = SelectedColor;
+
         GachaMenu.SetActive(false);
     }
 
@@ -75,7 +82,7 @@ public class MenuManager : MonoBehaviour
         ResourcesMenu.SetActive(true);
         GachaMenu.SetActive(false);
 
-        ChangeButtonColor(0);
+        ChangeMenuButtonColor(0);
         SetMenuText("자원");
     }
 
@@ -84,11 +91,11 @@ public class MenuManager : MonoBehaviour
         GachaMenu.SetActive(true);
         ResourcesMenu.SetActive(false);
 
-        ChangeButtonColor(1);
+        ChangeMenuButtonColor(1);
         SetMenuText("뽑기");
     }
 
-    void ChangeButtonColor(int menuNum)
+    void ChangeMenuButtonColor(int menuNum)
     {
         // 0일 경우 자원 메뉴 버튼을 선택 중으로 변경
         if (0 == menuNum)
@@ -108,6 +115,11 @@ public class MenuManager : MonoBehaviour
             ResourcesMenuBackground.color = Color.white;
             ResourcesMenuText.color = Color.black;
         }
+    }
+
+    void ChangePanelButtonColor()
+    {
+
     }
 
     void SetMenuText(string name)

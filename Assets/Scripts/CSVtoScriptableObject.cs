@@ -17,6 +17,7 @@ public class CSVtoScriptableObject
         {
             string[] splitData = allLine.Split(',');
 
+            // ItemList.csv파일의 처음 두 행은 건너뛴다
             int result = 0; // 결과값 할당용 변수(사용 X)
             if (false == int.TryParse(splitData[0], out result))
             {
