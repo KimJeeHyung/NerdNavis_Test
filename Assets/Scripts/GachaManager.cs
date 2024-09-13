@@ -47,6 +47,7 @@ public class GachaManager : MonoBehaviour
         // 보유 자원이 뽑기에 필요한 자원보다 적으면 리턴
         if (Player.Instance.GetResources() < count * 100)
         {
+            Debug.Log("뽑기에 필요한 자원 부족");
             return;
         }
 

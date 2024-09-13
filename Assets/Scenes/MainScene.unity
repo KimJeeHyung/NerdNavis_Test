@@ -229,6 +229,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1213298013}
+        m_TargetAssemblyTypeName: GachaManager, Assembly-CSharp
+        m_MethodName: set_ItemType
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 200
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2672700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2481,6 +2493,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1213298013}
+        m_TargetAssemblyTypeName: GachaManager, Assembly-CSharp
+        m_MethodName: set_ItemType
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 300
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &334410685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4038,6 +4062,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1213298013}
+        m_TargetAssemblyTypeName: GachaManager, Assembly-CSharp
+        m_MethodName: set_ItemType
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 100
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &633217842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4511,7 +4547,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 687828246}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1213298013}
+        m_TargetAssemblyTypeName: GachaManager, Assembly-CSharp
+        m_MethodName: Gacha
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 10
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &687828246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5480,7 +5528,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 881926273}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1213298013}
+        m_TargetAssemblyTypeName: GachaManager, Assembly-CSharp
+        m_MethodName: Gacha
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &881926273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6305,11 +6365,11 @@ RectTransform:
   - {fileID: 1703242701}
   m_Father: {fileID: 735079905}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 350, y: 0}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 1, y: 1}
+  m_Pivot: {x: 0, y: 1}
 --- !u!1 &1024922769
 GameObject:
   m_ObjectHideFlags: 0
@@ -7203,6 +7263,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 716873b18ddc20d4d8f9d10bc1ee31ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  n_ItemType: 100
+  n_EndItemID: 0
+  WeaponList:
+  - {fileID: 1041546080}
+  - {fileID: 2098844604}
+  - {fileID: 1839807611}
+  - {fileID: 2041611665}
+  - {fileID: 1770346864}
+  - {fileID: 531751478}
+  - {fileID: 655778685}
+  - {fileID: 918871079}
+  - {fileID: 1410620104}
+  - {fileID: 1762276009}
+  ArmorList:
+  - {fileID: 1690895144}
+  - {fileID: 584590390}
+  - {fileID: 296364525}
+  - {fileID: 893176208}
+  - {fileID: 1983253551}
+  - {fileID: 884010534}
+  - {fileID: 328656024}
+  - {fileID: 379234937}
+  - {fileID: 1753569345}
+  - {fileID: 2097893723}
+  ShieldList:
+  - {fileID: 912686585}
+  - {fileID: 654625875}
+  - {fileID: 590934065}
+  - {fileID: 1494286176}
+  - {fileID: 845800178}
+  - {fileID: 1727809691}
+  - {fileID: 1235644055}
+  - {fileID: 90032636}
+  - {fileID: 255553363}
+  - {fileID: 1025661684}
 --- !u!4 &1213298014
 Transform:
   m_ObjectHideFlags: 0
@@ -8387,7 +8482,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1479870948}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1213298013}
+        m_TargetAssemblyTypeName: GachaManager, Assembly-CSharp
+        m_MethodName: Gacha
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 100
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1479870948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8741,11 +8848,11 @@ RectTransform:
   - {fileID: 1924055767}
   m_Father: {fileID: 735079905}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 450, y: 150}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 1, y: 0}
 --- !u!114 &1555951285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9288,6 +9395,11 @@ PrefabInstance:
 --- !u!224 &1690895143 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4881944061823874668, guid: 69656880f5d952644b98270a2bf10acf, type: 3}
+  m_PrefabInstance: {fileID: 1690895142}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1690895144 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4923424479433105936, guid: 69656880f5d952644b98270a2bf10acf, type: 3}
   m_PrefabInstance: {fileID: 1690895142}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1693528403
@@ -11194,11 +11306,11 @@ RectTransform:
   - {fileID: 1140055732}
   m_Father: {fileID: 735079905}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 450, y: 150}
-  m_Pivot: {x: 1, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &1952064139
 MonoBehaviour:
   m_ObjectHideFlags: 0
