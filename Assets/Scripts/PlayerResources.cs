@@ -27,6 +27,11 @@ public class PlayerResources : MonoBehaviour
         n_CurrentResources += value;
     }
 
+    public void SubtractResources(int value)
+    {
+        n_CurrentResources -= value;
+    }
+
     public bool IsMaximum()
     {
         return n_CurrentResources >= n_Maximum;

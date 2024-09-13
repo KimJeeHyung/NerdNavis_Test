@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GachaManager : MonoBehaviour
@@ -8,15 +10,24 @@ public class GachaManager : MonoBehaviour
     const int n_NormalGachaRate = 52;
     const int n_RareGachaRate = 33;
     const int n_EpicGachaRate = 15;
-
     private int[] GradePercentages= new int[3] { n_NormalGachaRate, n_RareGachaRate, n_EpicGachaRate };
 
+    // 결과값 확인용 배열
     int[] gachaResult = new int[3] { 0, 0, 0 };
+
+    // 뽑을 아이템 타입
+    // 100: 무기
+    // 200: 방어구
+    // 300: 장신구
+    [SerializeField] private int n_ItemType = 100;
+    public int ItemType { get { return n_ItemType; } set { n_ItemType = value; } }
+
+    [SerializeField] private int n_ItemID = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        Gacha(100000000, 100);
+        //Gacha(100000000);
     }
 
     // Update is called once per frame
@@ -25,24 +36,39 @@ public class GachaManager : MonoBehaviour
         
     }
 
-    public void Gacha(int count, int itemType)
+    public void Gacha(int count)
     {
-        for (int i = 0; i < count; i++)
+        // 보유 자원이 뽑기에 필요한 자원보다 적으면 리턴
+        if (Player.Instance.GetResources() < count * 100)
         {
-            GachaOneTime(itemType);
+            return;
         }
 
+        // 뽑기에 필요한 자원만큼 차감 후 텍스트 갱신
+        Player.Instance.SubtractResources(count * 100);
+        MenuManager.UpdateResourcesText();
+
+        // 결과값 배열 초기화
+        System.Array.Clear(gachaResult, 0, gachaResult.Length);
+
+        // count만큼 뽑기 시행
+        for (int i = 0; i < count; i++)
+        {
+            GachaOneTime();
+        }
+
+        // 결과값 확인용 함수
         ShowGachaResult(count);
     }
 
-    void GachaOneTime(int itemType)
+    void GachaOneTime()
     {
-        int resultID = 0;
+        n_ItemID = 0;
 
         // 난수를 이용해 랜덤한 아이템 ID 선택
         // SelectGrade함수에서 리턴한 끝자리와 itemType을 더해
         // 3종류(무기, 방어구, 장신구) 중 하나를 골라 뽑기를 할 수 있음
-        resultID = SelectGrade() + itemType;
+        n_ItemID = SelectGrade() + n_ItemType;
     }
 
     int SelectGrade()

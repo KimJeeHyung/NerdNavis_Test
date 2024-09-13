@@ -65,6 +65,11 @@ public class Player : MonoBehaviour
         playerResources.AddResources(value);
     }
 
+    public void SubtractResources(int value)
+    {
+        playerResources.SubtractResources(value);
+    }
+
     public int GetResources()
     {
         return playerResources.CurrentResources;

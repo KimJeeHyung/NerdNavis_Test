@@ -117,11 +117,6 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    void ChangePanelButtonColor()
-    {
-
-    }
-
     void SetMenuText(string name)
     {
         MenuText.text = name;
