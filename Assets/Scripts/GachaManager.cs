@@ -22,12 +22,18 @@ public class GachaManager : MonoBehaviour
     [SerializeField] private int n_ItemType = 100;
     public int ItemType { get { return n_ItemType; } set { n_ItemType = value; } }
 
-    [SerializeField] private int n_ItemID = 0;
+    // 뽑아서 나온 아이템의 ID의 끝자리
+    [SerializeField] private int n_EndItemID = 0;
+
+    [SerializeField] private List<GameObject> WeaponList;
+    [SerializeField] private List<GameObject> ArmorList;
+    [SerializeField] private List<GameObject> ShieldList;
 
     // Start is called before the first frame update
     void Start()
     {
         //Gacha(100000000);
+        DisableAllItems();
     }
 
     // Update is called once per frame
@@ -45,8 +51,7 @@ public class GachaManager : MonoBehaviour
         }
 
         // 뽑기에 필요한 자원만큼 차감 후 텍스트 갱신
-        Player.Instance.SubtractResources(count * 100);
-        MenuManager.UpdateResourcesText();
+        Consume(count * 100);
 
         // 결과값 배열 초기화
         System.Array.Clear(gachaResult, 0, gachaResult.Length);
@@ -63,12 +68,13 @@ public class GachaManager : MonoBehaviour
 
     void GachaOneTime()
     {
-        n_ItemID = 0;
+        n_EndItemID = 0;
 
         // 난수를 이용해 랜덤한 아이템 ID 선택
-        // SelectGrade함수에서 리턴한 끝자리와 itemType을 더해
-        // 3종류(무기, 방어구, 장신구) 중 하나를 골라 뽑기를 할 수 있음
-        n_ItemID = SelectGrade() + n_ItemType;
+        // SelectGrade함수에서 리턴한 ID 끝자리를 통해
+        // 3종류(무기, 방어구, 장신구) 중 하나의 아이템이 목록에서 활성화됨
+        n_EndItemID = SelectGrade();
+        ActivateItem();
     }
 
     int SelectGrade()
@@ -133,5 +139,43 @@ public class GachaManager : MonoBehaviour
         percentage[2] = gachaResult[2] * 100f / count;
 
         Debug.Log($"Normal: {percentage[0]}     Rare: {percentage[1]}     Epic: {percentage[2]}");
+    }
+
+    void Consume(int resources)
+    {
+        Player.Instance.SubtractResources(resources);
+        MenuManager.UpdateResourcesText();
+    }
+
+    void DisableAllItems()
+    {
+        foreach (GameObject item in WeaponList)
+        {
+            item.SetActive(false);
+        }
+        foreach (GameObject item in ArmorList)
+        {
+            item.SetActive(false);
+        }
+        foreach (GameObject item in ShieldList)
+        {
+            item.SetActive(false);
+        }
+    }
+
+    void ActivateItem()
+    {
+        switch (n_ItemType)
+        {
+            case 100:
+                WeaponList[n_EndItemID - 1].SetActive(true);
+                break;
+            case 200:
+                ArmorList[n_EndItemID - 1].SetActive(true);
+                break;
+            case 300:
+                ShieldList[n_EndItemID - 1].SetActive(true);
+                break;
+        }
     }
 }
