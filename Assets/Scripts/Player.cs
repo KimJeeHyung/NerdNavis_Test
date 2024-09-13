@@ -83,16 +83,19 @@ public class Player : MonoBehaviour
     public void AddAttack(int value)
     {
         playerStats.AddAttack(value);
+        MenuManager.UpdateStatTexts();
     }
 
     public void AddDefense(int value)
     {
         playerStats.AddDefense(value);
+        MenuManager.UpdateStatTexts();
     }
 
     public void AddHp(int value)
     {
         playerStats.AddHp(value);
+        MenuManager.UpdateStatTexts();
     }
 
     public int GetAttack()

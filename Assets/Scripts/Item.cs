@@ -41,4 +41,9 @@ public class Item : MonoBehaviour
                 break;
         }
     }
+
+    public int GetDefaultValue()
+    {
+        return itemData.n_DefaultValue;
+    }
 }

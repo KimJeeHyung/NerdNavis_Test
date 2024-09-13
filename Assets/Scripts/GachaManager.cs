@@ -165,16 +165,47 @@ public class GachaManager : MonoBehaviour
 
     void ActivateItem()
     {
+        Item item = null;
+
+        // ItemType에 맞는 아이템 오브젝트를 활성화하고
+        // 해당 오브젝트의 기본 스탯만큼 플레이어 스탯 강화
         switch (n_ItemType)
         {
             case 100:
-                WeaponList[n_EndItemID - 1].SetActive(true);
+                item = WeaponList[n_EndItemID - 1].GetComponent<Item>();
+
+                if (false == WeaponList[n_EndItemID - 1].activeSelf)
+                {
+                    WeaponList[n_EndItemID - 1].SetActive(true);
+                    if (null != item)
+                    {
+                        Player.Instance.AddAttack(item.GetDefaultValue());
+                    }
+                }
                 break;
             case 200:
-                ArmorList[n_EndItemID - 1].SetActive(true);
+                item = ArmorList[n_EndItemID - 1].GetComponent<Item>();
+
+                if (false == ArmorList[n_EndItemID - 1].activeSelf)
+                {
+                    ArmorList[n_EndItemID - 1].SetActive(true);
+                    if (null != item)
+                    {
+                        Player.Instance.AddDefense(item.GetDefaultValue());
+                    }
+                }
                 break;
             case 300:
-                ShieldList[n_EndItemID - 1].SetActive(true);
+                item = ShieldList[n_EndItemID - 1].GetComponent<Item>();
+
+                if (false == ShieldList[n_EndItemID - 1].activeSelf)
+                {
+                    ShieldList[n_EndItemID - 1].SetActive(true);
+                    if (null != item)
+                    {
+                        Player.Instance.AddHp(item.GetDefaultValue());
+                    }
+                }
                 break;
         }
     }
